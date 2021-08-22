@@ -18,7 +18,7 @@ export default function StudentDirectory() {
   }, []);
 
   if (!post) return null;
-  // if (!post) return null;
+  if (!post) return null;
 
   function handleChange(a) {
     setInput(a);
