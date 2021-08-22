@@ -32,7 +32,6 @@ export default function AdminLogin() {
     setUsername(userInput);
   }
   if (!post) return null;
-
   return (
     <div>
       <Header />

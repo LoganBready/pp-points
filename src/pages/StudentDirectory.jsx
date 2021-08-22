@@ -18,7 +18,6 @@ export default function StudentDirectory() {
   }, []);
 
   if (!post) return null;
-  if (!post) return null;
 
   function handleChange(a) {
     setInput(a);
@@ -33,7 +32,11 @@ export default function StudentDirectory() {
     let filteredArr = [];
 
     for (let i = 0; i < unfilteredArr.length; i++) {
-      if (unfilteredArr[i].cohort.toLowerCase() === input.toLowerCase()) {
+      if (input === "") {
+        alert('DON"T WORK');
+      } else if (
+        unfilteredArr[i].cohort.toLowerCase() === input.toLowerCase()
+      ) {
         filteredArr.push(unfilteredArr[i]);
       }
       setPost(filteredArr);

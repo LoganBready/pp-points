@@ -1,94 +1,63 @@
+import React, { useState } from "react";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import Footer from "../components/footer";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 
 const baseURL = `http://localhost:4500/api/points`;
 
-export default function AddStudent() {
-  const [post, setPost] = React.useState(null);
-  const [studentInput, setStudentInput] = useState("");
-  const [cohortInput, setCohortInput] = useState("");
-  const [specializationInput, setSpecializationInput] = useState("");
-
-  function handleStudentInput(a) {
-    // a.preventDefault();
-    setStudentInput(a);
+function AddStudent() {
+  const [name, setName] = useState("");
+  const [cohort, setCohort] = useState("");
+  const [spec, setSpec] = useState("");
+  function handleChangeName(input) {
+    setName(input);
   }
-  function handleCohortInput(a) {
-    // a.preventDefault();
-    setCohortInput(a);
+  function handleChangeCohort(input) {
+    setCohort(input);
   }
-  function handleSpecializationInput(a) {
-    // a.preventDefault();
-    setSpecializationInput(a);
+  function handleChangeSpec(input) {
+    setSpec(input);
   }
-
-  React.useEffect(() => {
-    axios.get(`${baseURL}`).then((response) => {
-      setPost(response.data);
+  function sendIT() {
+    const article = { name: name, cohort: cohort, specialization: spec };
+    axios.post(baseURL, article).then((res) => {
+      return console.log("You did it");
     });
-  }, []);
-
-  function createPost(studentInput, cohortInput, specializationInput) {
-    console.log("test");
-    axios
-      .post(baseURL, {
-        name: studentInput,
-        cohort: cohortInput,
-        specialization: specializationInput,
-      })
-      .then((response) => {
-        setPost(response.data);
-        console.log(response.data);
-      });
   }
-  if (!post) return "No Post!";
-  // console.log(studentInput, cohortInput, specializationInput);
   return (
     <div>
       <Header />
-      <div className="main-page">
-        <div className="student-entry">
-          <h2>Student Entry</h2>
+      <div>
+        <h1>Add Student</h1>
+        <div>
+          <form>
+            <input
+              type="text"
+              placeholder="name"
+              onChange={(e) => handleChangeName(e.target.value)}
+            ></input>
+            <input
+              type="text"
+              placeholder="cohort"
+              onChange={(e) => handleChangeCohort(e.target.value)}
+            ></input>
+            <input
+              type="text"
+              placeholder="specialization"
+              onChange={(e) => handleChangeSpec(e.target.value)}
+            ></input>
+            <input
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                sendIT();
+              }}
+            ></input>
+          </form>
         </div>
-        <form>
-          <label for="student" placeholder="Student"></label>
-          <input
-            type="text"
-            name="student"
-            placeholder="Student"
-            // onChange={(e) => setStudentInput((studentInput = e.target.value))}
-            onChange={(e) => handleStudentInput(e.target.value)}
-          ></input>
-          <label for="cohort" placeholder="Cohort"></label>
-          <input
-            type="text"
-            name="cohort"
-            placeholder="Cohort"
-            onChange={(e) => handleCohortInput(e.target.value)}
-          ></input>
-          <label for="specialization" placeholder="specialization"></label>
-          <input
-            type="text"
-            name="specialization"
-            placeholder="specialization"
-            onChange={(e) => handleSpecializationInput(e.target.value)}
-          ></input>
-
-          <input
-            type="submit"
-            name="add"
-            placeholder="Submit"
-            onSubmit={createPost(
-              studentInput,
-              cohortInput,
-              specializationInput
-            )}
-          ></input>
-        </form>
       </div>
       <Footer />
     </div>
   );
 }
+export default AddStudent;
