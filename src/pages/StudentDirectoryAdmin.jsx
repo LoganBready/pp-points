@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
-import AdminHeader from "../components/adminheader";
+import Header from "../components/Header";
 import trash from "./delete.png";
 const axios = require("axios");
 
@@ -71,7 +71,7 @@ export default function StudentDirectory() {
 
   return (
     <div>
-      <AdminHeader />
+      <Header />
       <div className="sDirectory">
         <h1>Student Directory</h1>
         <div className="searchContainer">
