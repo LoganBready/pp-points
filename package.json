@@ -19,6 +19,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "heroku-postbuild": "npm install",
     "start": "node app",
     "build": "react-scripts build",
     "test": "react-scripts test",
