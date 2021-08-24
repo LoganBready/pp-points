@@ -13,6 +13,11 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-items">
+              <Link className="nav-link" to="/AddStudent">
+                Add Student
+              </Link>
+            </li>
+            <li className="nav-items">
               <NavLink className="nav-link" to="/StudentDirectory">
                 Student Directory
               </NavLink>
