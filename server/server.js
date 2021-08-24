@@ -5,7 +5,7 @@ const path = require("path");
 const port = process.env.PORT || 4500;
 const ctrl = require("./controller/controller");
 
-//establish Middleware
+//establish Middlewar e
 app.use(express.json());
 app.use(cors());
 
