@@ -188,3 +188,7 @@ h1 {
 .form-input:focus {
   border: 0;
 }
+.trashImg {
+  height: 80%;
+  width: 70%;
+}
