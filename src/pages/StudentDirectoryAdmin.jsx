@@ -10,24 +10,14 @@ export default function StudentDirectory() {
   const [post, setPost] = useState(0);
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
-  const [checked, setChecked] = useState(false);
 
   //function below retrieves all student from the data base
 
-  // useEffect(() => {
-  //   axios.get(baseURL).then((res) => {
-  //     setPost(res.data);
-  //     setFiltered(res.data);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    const getData = async () => {
-      await axios.get(baseURL).then((res) => {
-        setPost(res.data);
-      });
-    };
-    getData();
+    axios.get(baseURL).then((res) => {
+      setPost(res.data);
+      setFiltered(res.data);
+    });
   }, []);
 
   if (!post) return null;
@@ -54,7 +44,7 @@ export default function StudentDirectory() {
     }
   }
 
-  //The functions below handle the PUT requests to update points for the student.
+  //Function below handles put request to update points for the student.
 
   function addPoint(id) {
     let idNum = parseInt(id);
@@ -70,48 +60,12 @@ export default function StudentDirectory() {
     });
   }
 
-
-  //The Functions below handle the PUT requests to update the milestones for the student.
-
-  function milestoneOne(id) {
-    let idNum = parseInt(id);
-    if (post[idNum - 1].milestone1 === false) {
-      axios
-        .put(`${baseURL}/milestone/${idNum}`, { type: "m1t" })
-        .then((res) => {
-          setPost(res.data);
-          // setChecked(checked);
-          // console.log(checked);
-          console.log(res.data);
-        });
-    } else {
-      axios
-        .put(`${baseURL}/milestone/${idNum}`, { type: "m1f" })
-        .then((res) => {
-          setPost(res.data);
-          // setChecked(!checked);
-          console.log(res.data);
-        });
-    }
-  }
-
-  // function milestoneOne(id) {
-  //   let idNum = parseInt(id);
-  //   console.log(idNum);
-  //   axios.put(`${baseURL}/milestone/${idNum}`, { type: "m1t" }).then((res) => {
-  //     setPost(res.data);
-  //     setChecked(!checked);
-  //     console.log(res.data);
-  //   });
-  // }
-
   function deletePost(id) {
     let idNum = parseInt(id);
     axios.delete(`${baseURL}/${idNum}`).then((res) => {
       setPost(res.data);
     });
   }
-
 
   //return displays all the information on the DOM.
 
@@ -141,14 +95,8 @@ export default function StudentDirectory() {
             <div key={post[index].id} className="studentCard">
               <p className="studentInfo">{post[index].name}</p>
               <p className="studentInfo">{post[index].cohort}</p>
-              <label className="switch" id={index}>
-                <input
-                  type="checkbox"
-                  // id={post[index].id}
-                  data-user={post[index].id}
-                  checked={post[index].milestone1}
-                  onChange={(e) => milestoneOne(e.target.dataset.user)}
-                ></input>
+              <label className="switch">
+                <input type="checkbox"></input>
                 <span className="slider round"></span>
               </label>
 
