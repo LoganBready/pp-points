@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
 import Header from "../components/Header";
+import trash from "./delete.png";
 const axios = require("axios");
 
 const baseURL = `http://localhost:4500/api/points`;
@@ -69,6 +70,7 @@ export default function StudentDirectory() {
     });
   }
 
+
   //The Functions below handle the PUT requests to update the milestones for the student.
 
   function milestoneOne(id) {
@@ -102,6 +104,14 @@ export default function StudentDirectory() {
   //     console.log(res.data);
   //   });
   // }
+
+  function deletePost(id) {
+    let idNum = parseInt(id);
+    axios.delete(`${baseURL}/${idNum}`).then((res) => {
+      setPost(res.data);
+    });
+  }
+
 
   //return displays all the information on the DOM.
 
@@ -162,6 +172,19 @@ export default function StudentDirectory() {
                   onClick={(e) => addPoint(e.target.dataset.user)}
                 >
                   +
+                </button>
+                {/* <img
+                  src={trash}
+                  data-user={post[index].id}
+                  className="plusMinusBtn trashImg"
+                  onClick={(e) => deletePost(e.target.dataset.user)}
+                /> */}
+                <button
+                  data-user={post[index].id}
+                  className="plusMinusBtn"
+                  onClick={(e) => deletePost(e.target.dataset.user)}
+                >
+                  X
                 </button>
               </p>
             </div>

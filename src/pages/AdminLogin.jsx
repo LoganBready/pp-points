@@ -1,37 +1,31 @@
-import React from "react";
-import axios from "axios";
+import React, { useRef, useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 import Footer from "../components/footer";
 import Header from "../components/Header";
 
-const baseURL = `http://localhost:4500/api/login`;
-
 export default function AdminLogin() {
-  const [post, setPost] = React.useState(null);
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  React.useEffect(() => {
-    axios.get(baseURL).then((res) => {
-      setPost(res.data);
-    });
-  }, []);
-  function checkPass() {
-    if (post[0].username !== username) {
-      return console.log("Hello no");
-    } else {
-      if (post[0].password !== password) {
-        return console.log("Hello no");
-      } else {
-        return console.log("Hello yes");
-      }
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/studentdirectoryadmin");
+    } catch {
+      setError("Failed to log in!");
     }
+    setLoading(false);
   }
-  function handleEventPass(userInput) {
-    setPassword(userInput);
-  }
-  function handleEventUser(userInput) {
-    setUsername(userInput);
-  }
-  if (!post) return null;
+
   return (
     <div>
       <Header />
@@ -39,31 +33,26 @@ export default function AdminLogin() {
         <div className="admin-login">
           <h2 className="admin-log-header">Admin Login</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="form-input"
-            type="text"
+            type="email"
+            ref={emailRef}
             name="username"
-            placeholder="username"
-            onChange={(e) => handleEventUser(e.target.value)}
+            placeholder="email"
+            required
           ></input>
           <input
             className="form-input"
             type="password"
+            ref={passwordRef}
             name="password"
             placeholder="password"
-            onChange={(e) => handleEventPass(e.target.value)}
+            required
           ></input>
-          <input
-            className="form-input form-btn"
-            type="submit"
-            name="login"
-            placeholder="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              checkPass();
-            }}
-          ></input>
+          <button className="form-input form-btn" type="submit" name="login">
+            Log In
+          </button>
         </form>
       </div>
       <Footer />
