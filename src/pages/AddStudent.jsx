@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Header from "../components/Header";
+import AdminHeader from "../components/adminheader";
 import Footer from "../components/footer";
 
 const baseURL = `/api/points`;
@@ -26,7 +26,7 @@ function AddStudent() {
   }
   return (
     <div>
-      <Header />
+      <AdminHeader />
       <div className="main-page">
         <div className="admin-login">
           <h1 className="admin-log-header">Add Student</h1>

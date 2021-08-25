@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthProvider } from "../contexts/AuthContext";
 import "../../src/App.css";
-export default function Header() {
+export default function AdminHeader() {
   return (
     <header className="header">
       <main>
@@ -13,13 +14,13 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-items">
-              <NavLink className="nav-link" to="/StudentDirectory">
-                Student Directory
-              </NavLink>
+              <Link className="nav-link" to="/AddStudent">
+                Add Student
+              </Link>
             </li>
             <li className="nav-items">
-              <NavLink className="nav-link" to="/AdminLogin">
-                Admin Login
+              <NavLink className="nav-link" to="/studentdirectoryadmin">
+                Student Directory
               </NavLink>
             </li>
           </ul>
