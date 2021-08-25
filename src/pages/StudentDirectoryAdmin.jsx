@@ -9,7 +9,7 @@ export default function StudentDirectory() {
   const [post, setPost] = useState(0);
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   //function below retrieves all student from the data base
 
@@ -24,6 +24,7 @@ export default function StudentDirectory() {
     const getData = async () => {
       await axios.get(baseURL).then((res) => {
         setPost(res.data);
+        setFiltered(res.data);
       });
     };
     getData();
@@ -69,7 +70,7 @@ export default function StudentDirectory() {
     });
   }
 
-  //The Functions below handle the PUT requests to update the milestones for the student.
+  //The function below handle the PUT request to update the milestone 1 Boolean for the student.
 
   function milestoneOne(id) {
     let idNum = parseInt(id);
@@ -77,19 +78,47 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1t" })
         .then((res) => {
-          setPost(res.data);
-          // setChecked(checked);
-          // console.log(checked);
-          console.log(res.data);
+          console.log("");
         });
+      axios.get(baseURL).then((res) => {
+        setPost(res.data);
+      });
     } else {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1f" })
         .then((res) => {
-          setPost(res.data);
-          // setChecked(!checked);
-          console.log(res.data);
+          console.log("");
         });
+      axios.get(baseURL).then((res) => {
+        setPost(res.data);
+      });
+    }
+  }
+
+  //The function below handle the PUT request to update the milestone 2 Boolean for the student.
+
+  function milestoneTwo(id) {
+    let idNum = parseInt(id);
+    if (post[idNum - 1].milestone2 === false) {
+      axios
+        .put(`${baseURL}/milestone/${idNum}`, { type: "m2t" })
+        .then((res) => {
+          console.log("");
+        });
+      axios.get(baseURL).then((res) => {
+        console.log(res.data);
+        setPost(res.data);
+      });
+    } else {
+      axios
+        .put(`${baseURL}/milestone/${idNum}`, { type: "m2f" })
+        .then((res) => {
+          console.log("");
+        });
+      axios.get(baseURL).then((res) => {
+        console.log(res.data);
+        setPost(res.data);
+      });
     }
   }
 
@@ -143,7 +172,12 @@ export default function StudentDirectory() {
               </label>
 
               <label className="switch">
-                <input type="checkbox"></input>
+                <input
+                  type="checkbox"
+                  data-user={post[index].id}
+                  checked={post[index].milestone2}
+                  onChange={(e) => milestoneTwo(e.target.dataset.user)}
+                ></input>
                 <span className="slider round"></span>
               </label>
 
