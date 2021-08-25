@@ -3,15 +3,15 @@ import Footer from "../components/footer";
 import Header from "../components/Header";
 import trash from "./delete.png";
 const axios = require("axios");
-
-const baseURL = `http://localhost:4500/api/points`;
+//im not the same
+const baseURL = `/api/points`;
 
 export default function StudentDirectory() {
   const [post, setPost] = useState(0);
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
   // const [checked, setChecked] = useState(false);
-
+  console.log("I am not the same");
   //function below retrieves all student from the data base
 
   // useEffect(() => {
