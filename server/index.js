@@ -11,10 +11,14 @@ app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    req.sendFile(path.resolve(__dirname, "build", "index.html"));
+  // app.get("*", (req, res) => {
+  //   req.sendFile(path.resolve(__dirname, "build", "index.html"));
+  // });
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 }
+
 //commands for the controler file
 app.get("/api/points", ctrl.getPoints);
 app.get("/api/login", ctrl.getLogin);
