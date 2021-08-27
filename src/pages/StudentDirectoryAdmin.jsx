@@ -11,7 +11,11 @@ export default function StudentDirectory() {
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
   // const [checked, setChecked] = useState(false);
+<<<<<<< HEAD
   console.log("I am not the same");
+=======
+
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
   //function below retrieves all student from the data base
 
   // useEffect(() => {
@@ -71,7 +75,11 @@ export default function StudentDirectory() {
     });
   }
 
+<<<<<<< HEAD
   //The Functions below handle the PUT requests to update the milestones for the student.
+=======
+  //The function below handle the PUT request to update the milestone 1 Boolean for the student.
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
 
   function milestoneOne(id) {
     let idNum = parseInt(id);
@@ -79,7 +87,11 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1t" })
         .then((res) => {
+<<<<<<< HEAD
           console.log("");
+=======
+          console.log(res.data);
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
         });
       axios.get(baseURL).then((res) => {
         setPost(res.data);
@@ -88,7 +100,11 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1f" })
         .then((res) => {
+<<<<<<< HEAD
           console.log("");
+=======
+          console.log(res.data);
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
         });
       axios.get(baseURL).then((res) => {
         setPost(res.data);
@@ -104,7 +120,11 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m2t" })
         .then((res) => {
+<<<<<<< HEAD
           console.log("");
+=======
+          console.log(res.data);
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
         });
       axios.get(baseURL).then((res) => {
         console.log(res.data);
@@ -114,7 +134,11 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m2f" })
         .then((res) => {
+<<<<<<< HEAD
           console.log("");
+=======
+          console.log(res.data);
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
         });
       axios.get(baseURL).then((res) => {
         console.log(res.data);
@@ -123,12 +147,24 @@ export default function StudentDirectory() {
     }
   }
 
+<<<<<<< HEAD
   function deletePost(id) {
     let idNum = parseInt(id);
     axios.delete(`${baseURL}/${idNum}`).then((res) => {
       setPost(res.data);
     });
   }
+=======
+  // function milestoneOne(id) {
+  //   let idNum = parseInt(id);
+  //   console.log(idNum);
+  //   axios.put(`${baseURL}/milestone/${idNum}`, { type: "m1t" }).then((res) => {
+  //     setPost(res.data);
+  //     setChecked(!checked);
+  //     console.log(res.data);
+  //   });
+  // }
+>>>>>>> 028b96bac51efed993c529f3f0d71f927d3d7312
 
   //return displays all the information on the DOM.
 
