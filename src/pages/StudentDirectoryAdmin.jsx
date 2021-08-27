@@ -163,6 +163,7 @@ export default function StudentDirectory() {
                   data-user={post[index].id}
                   checked={post[index].milestone1}
                   onChange={(e) => milestoneOne(e.target.dataset.user)}
+                  className="checkbox"
                 ></input>
                 <span className="slider round"></span>
               </label>
@@ -173,6 +174,7 @@ export default function StudentDirectory() {
                   data-user={post[index].id}
                   checked={post[index].milestone2}
                   onChange={(e) => milestoneTwo(e.target.dataset.user)}
+                  className="checkbox"
                 ></input>
                 <span className="slider round"></span>
               </label>
@@ -204,7 +206,7 @@ export default function StudentDirectory() {
                   className="plusMinusBtn"
                   onClick={(e) => deletePost(e.target.dataset.user)}
                 >
-                  X
+                  <img src={trash} className="trashIcon"></img>
                 </button>
               </p>
             </div>

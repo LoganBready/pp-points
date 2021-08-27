@@ -148,6 +148,11 @@ h1 {
   cursor: pointer;
 }
 
+.trashIcon {
+  height: 16px;
+  width: 16px;
+}
+
 /*ADMIN LOGIN PAGE STYLEING*/
 .main-page {
   margin-right: 40vw;
@@ -187,8 +192,4 @@ h1 {
 }
 .form-input:focus {
   border: 0;
-}
-.trashImg {
-  height: 80%;
-  width: 70%;
 }
