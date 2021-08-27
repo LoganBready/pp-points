@@ -3,7 +3,7 @@ import axios from "axios";
 import AdminHeader from "../components/adminheader";
 import Footer from "../components/footer";
 
-const baseURL = `/api/points`;
+const baseURL = `http://localhost:4500/api/points`;
 
 function AddStudent() {
   const [name, setName] = useState("");

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import trash from "./delete.png";
 const axios = require("axios");
 //im not the same
-const baseURL = `/api/points`;
+const baseURL = `http://localhost:4500/api/points`;
 
 export default function StudentDirectory() {
   const [post, setPost] = useState(0);
@@ -12,7 +12,6 @@ export default function StudentDirectory() {
   const [input, setInput] = useState(0);
   // const [checked, setChecked] = useState(false);
 
-  
   //function below retrieves all student from the data base
 
   // useEffect(() => {
@@ -72,7 +71,6 @@ export default function StudentDirectory() {
     });
   }
 
-
   function milestoneOne(id) {
     let idNum = parseInt(id);
     if (post[idNum - 1].milestone1 === false) {
@@ -122,7 +120,6 @@ export default function StudentDirectory() {
       });
     }
   }
-
 
   function deletePost(id) {
     let idNum = parseInt(id);

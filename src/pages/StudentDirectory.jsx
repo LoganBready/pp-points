@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import Header from "../components/Header";
 const axios = require("axios");
 
-const baseURL = `/api/points`;
+const baseURL = `http://localhost:4500/api/points`;
 
 export default function StudentDirectory() {
   const [post, setPost] = useState(0);

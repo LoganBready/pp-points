@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
-const port = process.env.PORT || 4500;
+const port = 4500;
 const ctrl = require("./controller/controller");
 
 //establish Middlewar e
