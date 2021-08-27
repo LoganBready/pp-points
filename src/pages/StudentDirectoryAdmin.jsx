@@ -123,6 +123,7 @@ export default function StudentDirectory() {
 
   function deletePost(id) {
     let idNum = parseInt(id);
+    console.log(id);
     axios.delete(`${baseURL}/${idNum}`).then((res) => {
       setPost(res.data);
     });
@@ -206,7 +207,11 @@ export default function StudentDirectory() {
                   className="plusMinusBtn"
                   onClick={(e) => deletePost(e.target.dataset.user)}
                 >
-                  <img src={trash} className="trashIcon"></img>
+                  <img
+                    src={trash}
+                    data-user={post[index].id}
+                    className="trashIcon"
+                  ></img>
                 </button>
               </p>
             </div>
