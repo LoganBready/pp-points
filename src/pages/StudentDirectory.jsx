@@ -69,8 +69,8 @@ export default function StudentDirectory() {
             </div>
           ))}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

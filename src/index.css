@@ -78,6 +78,7 @@ footer {
 
 .directoryContainer {
   width: 100vw;
+  padding-bottom: 10vh;
 }
 .keyCard {
   display: flex;

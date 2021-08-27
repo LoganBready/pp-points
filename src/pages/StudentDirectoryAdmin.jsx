@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
-import Header from "../components/Header";
+import Adminheader from "../components/adminheader";
 import trash from "./delete.png";
 const axios = require("axios");
 //im not the same
@@ -10,16 +10,8 @@ export default function StudentDirectory() {
   const [post, setPost] = useState(0);
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
-  // const [checked, setChecked] = useState(false);
 
   //function below retrieves all student from the data base
-
-  // useEffect(() => {
-  //   axios.get(baseURL).then((res) => {
-  //     setPost(res.data);
-  //     setFiltered(res.data);
-  //   });
-  // }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -133,7 +125,7 @@ export default function StudentDirectory() {
 
   return (
     <div>
-      <Header />
+      <Adminheader />
       <div className="sDirectory">
         <h1>Student Directory</h1>
         <div className="searchContainer">
@@ -196,12 +188,6 @@ export default function StudentDirectory() {
                 >
                   +
                 </button>
-                {/* <img
-                  src={trash}
-                  data-user={post[index].id}
-                  className="plusMinusBtn trashImg"
-                  onClick={(e) => deletePost(e.target.dataset.user)}
-                /> */}
                 <button
                   data-user={post[index].id}
                   className="plusMinusBtn"
@@ -217,8 +203,8 @@ export default function StudentDirectory() {
             </div>
           ))}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

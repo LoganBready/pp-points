@@ -23,6 +23,9 @@ function AddStudent() {
     axios.post(baseURL, article).then((res) => {
       return console.log("You did it");
     });
+    setName("");
+    setCohort("");
+    setSpec("");
   }
   return (
     <div>
