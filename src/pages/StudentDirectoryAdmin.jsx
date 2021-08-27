@@ -11,7 +11,8 @@ export default function StudentDirectory() {
   const [filtered, setFiltered] = useState(0);
   const [input, setInput] = useState(0);
   // const [checked, setChecked] = useState(false);
-  console.log("I am not the same");
+
+  
   //function below retrieves all student from the data base
 
   // useEffect(() => {
@@ -71,7 +72,6 @@ export default function StudentDirectory() {
     });
   }
 
-  //The Functions below handle the PUT requests to update the milestones for the student.
 
   function milestoneOne(id) {
     let idNum = parseInt(id);
@@ -79,7 +79,7 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1t" })
         .then((res) => {
-          console.log("");
+          console.log(res.data);
         });
       axios.get(baseURL).then((res) => {
         setPost(res.data);
@@ -88,7 +88,7 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m1f" })
         .then((res) => {
-          console.log("");
+          console.log(res.data);
         });
       axios.get(baseURL).then((res) => {
         setPost(res.data);
@@ -104,7 +104,7 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m2t" })
         .then((res) => {
-          console.log("");
+          console.log(res.data);
         });
       axios.get(baseURL).then((res) => {
         console.log(res.data);
@@ -114,7 +114,7 @@ export default function StudentDirectory() {
       axios
         .put(`${baseURL}/milestone/${idNum}`, { type: "m2f" })
         .then((res) => {
-          console.log("");
+          console.log(res.data);
         });
       axios.get(baseURL).then((res) => {
         console.log(res.data);
@@ -122,6 +122,7 @@ export default function StudentDirectory() {
       });
     }
   }
+
 
   function deletePost(id) {
     let idNum = parseInt(id);
