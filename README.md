@@ -12,3 +12,6 @@ The PP-Points Tracker app is an application enabling DevMountain faculty to effe
 <li>App will allow admins notate whether or not students have recieved rewards at the predetermined intervals.</li>
 <li>App will allow admins to add/delete students on a necessary basis.</li>
 </ul>
+
+<strong><h1>Landing Page</h1></strong>
+![landing](./src/assets/landing.png)
