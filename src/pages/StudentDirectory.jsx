@@ -44,7 +44,7 @@ export default function StudentDirectory() {
     <div>
       <Header />
       <div className="sDirectory">
-        <h1>Student Directory</h1>
+        <h1 className="studentDirectoryHeader">Student Directory</h1>
         <div className="searchContainer">
           <input
             className="searchDirectory"
