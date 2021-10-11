@@ -15,3 +15,15 @@ The PP-Points Tracker app is an application enabling DevMountain faculty to effe
 
 <strong><h1>Landing Page</h1></strong>
 ![landing](./src/assets/landing.png)
+
+<strong><h1>Student Facing Directory</h1></strong>
+![StudentDirectory](./src/assets/StudentDirectory.gif)
+
+<strong><h1>Admin Login</h1></strong>
+![AdminLogin](./src/assets/AdminLogin.gif)
+
+<strong><h1>Adding a Student</h1></strong>
+![AddStudent](./src/assets/AddStudent.gif)
+
+<strong><h1>Deleting a Student</h1></strong>
+![DeleteStudent](./src/assets/DeleteStudent.gif)
