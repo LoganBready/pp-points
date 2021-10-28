@@ -49,6 +49,7 @@ nav {
   font-weight: 300;
   font-size: 3rem;
   color: #818181;
+  z-index: 999;
 }
 .champion {
   font-weight: 300;
@@ -80,6 +81,11 @@ footer {
   width: 100vw;
   padding-bottom: 10vh;
 }
+
+.studentDirectoryHeader {
+  margin-bottom: 25px;
+}
+
 .keyCard {
   display: flex;
   margin: auto;
